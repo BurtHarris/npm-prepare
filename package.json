@@ -1,6 +1,7 @@
 {
   "name": "npm-prepare",
   "version": "0.0.1-alpha.2",
+  "preview": true,
   "description": "Build-time version assurances for npm packages",
   "main": "lib/index.js",
   "bin": {
