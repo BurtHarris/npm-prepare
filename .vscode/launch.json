@@ -5,30 +5,33 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Debug npm-prepare",
             "type": "node",
             "request": "launch",
-            "name": "Launch Program",
-            "program": "${workspaceRoot}/bin/npm-prepare",
-            "env": {
-                "NODE_DEBUG": ""
-            }
+            "protocol": "auto",
+            "program": "${workspaceRoot}/npm-prepare",
+            "smartStep": true,
+            "runtimeArgs": [
+                "-r",
+                "tsconfig-paths/register"
+            ],
+            "env": {}
         },
         {
-            "type": "node",
-            "request": "launch",
             "name": "prepublish",
-            "program": "${workspaceRoot}/bin/npm-prepare",
-            "env": {
-                "npm_lifecycle_event":"prepublish",
-                "npm_lifecycle_script":"npm-prepare"
-            }
-        },
-        {
             "type": "node",
             "request": "launch",
-            "name": "test",
-            "program": "${workspaceRoot}/test.js",
-
+            "protocol": "auto",
+            "smartStep": true,
+            "program": "${workspaceRoot}/npm-prepare",
+            "runtimeArgs": [
+                "-r",
+                "tsconfig-paths/register"
+            ],
+            "env": {
+                "npm_lifecycle_event": "prepublish",
+                "npm_lifecycle_script": "npm-prepare||echo OK"
+            }
         }
     ]
 }

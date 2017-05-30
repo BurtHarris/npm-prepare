@@ -3,16 +3,13 @@
   "version": "0.0.1-alpha.4",
   "preview": true,
   "description": "Build-time version assurances for npm packages",
-  "main": "lib/index.js",
   "bin": {
-    "npm-prepare": "bin/npm-prepare"
+    "npm-prepare": "npm-prepare"
   },
   "scripts": {
     "prepare": "echo prepare && npm run build",
     "build": "tsc",
-    "prepublisxh": "npm-prepare || echo prepare step failednp",
-    "publish": "echo publish!!!",
-    "prepublish": "set npm && npm-prepare || echo 2 && echo 3",
+    "prepublish": "node -r tsconfig-paths/register npm-prepare || echo prepare step failednp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Burt Harris",
@@ -26,13 +23,14 @@
     "@types/yargs": "^6.6.0",
     "async-exec": "^1.0.3",
     "semver": "^5.3.0",
-    "source-map-support": "^0.4.15",
-    "yargs": "^8.0.1"
+    "source-map-support": "^0.4.15"
+    
   },
   "devDependencies": {
     "@types/node": "^6.0.73",
     "@types/semver": "^5.3.31",
     "check-node-version": "^1.1.2",
+    "tsconfig-paths": "^2.2.0",
     "typescript": "^2.3.3"
   }
 }

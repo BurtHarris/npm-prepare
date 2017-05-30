@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 require('source-map-support/register')
-var package = require("..")
-package.run()
+var prepare = require("npm-prepare")
+prepare.main()
